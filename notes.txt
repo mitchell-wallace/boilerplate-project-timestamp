@@ -1,9 +1,0 @@
-* date parsing issues.
-
-we can parse '2015-12-25' successfully but timeout before sending response.
-    return statement in wrong place
-
-if we get '1451001600000', how can we know to parse that as a number?
-
-string in: {"unix":1451001600000,"utc":"Fri, 25 Dec 2015 00:00:00 GMT"}
-number in: {"unix":1451001600000,"utc":"Fri, 25 Dec 2015 00:00:00 GMT"}

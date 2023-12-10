@@ -18,56 +18,6 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// ----- TEST -----
-
-let demoDateString = '1451001600000';
-let demoDate = new Date(demoDateString); // invalid date
-
-let demoDateString2 = '2015-12-25';
-let demoDate2 = new Date(demoDateString2); // success
-
-let demoDateNo3= 1451001600000;
-let demoDate3 = new Date(demoDateNo3); // success
-
-if (demoDate.valueOf() == demoDate2.valueOf())
-{
-  console.log('true');
-}
-else 
-{
-  console.log('false');
-}
-
-if (isNaN(demoDate.valueOf()))
-  { console.log("\t>>NaN test passed");}
-if (Number.isNaN(demoDate.valueOf()))
-  { console.log("\t>>NaN number test passed");}
-if (demoDate.toString() == "Invalid Date")
-  { console.log("\t>>string test passed");}
-
-if (isNaN(demoDate2.valueOf()))
-  { console.log("\t>>NaN test false positive");}
-if (Number.isNaN(demoDate2.valueOf()))
-  { console.log("\t>>NaN number test false positive");}
-if (demoDate2.toString() == "Invalid Date")
-  { console.log("\t>>string test false positive");}
-
-  console.log('value: ' + demoDate.valueOf());
-  console.log('string: ' + demoDate.toString());
-  console.log('direct: ' + demoDate);
-
-  console.log('2value: ' + demoDate2.valueOf());
-  console.log('2string: ' + demoDate2.toString());
-  console.log('2direct: ' + demoDate2);
-  
-if (demoDate == new Date('xyz'))
-  { console.log("\t>>known invalid date object test passed");}
-
-console.log({"unix": demoDate2[Symbol.toPrimitive]('number'),
-"utc" : demoDate2.toUTCString()});
-
-// ---- END-TEST -----
-
 // your first API endpoint... 
 app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
@@ -79,7 +29,6 @@ app.get("/api/:date?", (req, res) => {
   let thisDate;
 
   try {
-
     // if no date parameter present, return current time
     if (!req.params.date) 
     {
@@ -120,8 +69,6 @@ app.get("/api/:date?", (req, res) => {
     return;
   }
 });
-
-
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
